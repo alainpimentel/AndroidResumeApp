@@ -1,8 +1,10 @@
 package alainp.me.alainresume.classes;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.ContactsContract;
 
 import alainp.me.alainresume.R;
 
@@ -71,4 +73,23 @@ public class Helper {
         openInstalledApp(activity, addressUrl);
     }
 
+    private void addContact(Activity activity) {
+        Intent intent = new Intent(ContactsContract.Intents.Insert.ACTION);
+        intent.setType(ContactsContract.RawContacts.CONTENT_TYPE);
+        intent.putExtra(ContactsContract.Intents.Insert.EMAIL, activity.getString(R.string.email))
+              .putExtra(
+                      ContactsContract.Intents.Insert.EMAIL_TYPE,
+                      ContactsContract.CommonDataKinds.Email.TYPE_WORK)
+                .putExtra(
+                    ContactsContract.Intents.Insert.PHONE,
+                    activity.getString(R.string.phone_number_uri))
+                .putExtra(
+                        ContactsContract.Intents.Insert.PHONE_TYPE,
+                        ContactsContract.CommonDataKinds.Phone.TYPE_WORK)
+                .putExtra(
+                        ContactsContract.Intents.Insert.NAME,
+                        activity.getString(R.string.my_name));
+        activity.startActivity(intent);
+
+    }
 }

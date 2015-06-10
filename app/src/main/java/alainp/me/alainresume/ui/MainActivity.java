@@ -1,9 +1,15 @@
 package alainp.me.alainresume.ui;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,6 +39,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private RelativeLayout mRelativeLayoutLinkedin;
     private RelativeLayout mRelativeLayoutBlog;
     private RelativeLayout mRelativeLayoutResume;
+    private FloatingActionButton mFloatingButtonAddContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +86,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mRelativeLayoutResume.setOnClickListener(this);
         MaterialRippleLayout.
                 on(mRelativeLayoutResume).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
+        // Floating Action Button
+        mFloatingButtonAddContact =
+                (FloatingActionButton) findViewById(R.id.floatingbutton_add_contact);
+        mFloatingButtonAddContact.setOnClickListener(this);
     }
 
     @Override
@@ -107,7 +118,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.relativelayout_phone:
-               mHelper.openPhoneDialer(this, getString(R.string.phone_number_uri));
+                mHelper.openPhoneDialer(this, getString(R.string.phone_number_uri));
                 break;
             case R.id.relativelayout_email:
                 mHelper.openEmail(this);
@@ -127,13 +138,63 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             case R.id.relativelayout_resume:
                 mHelper.openBrowser(this, getString(R.string.link_resume_url));
                 break;
+            case R.id.floatingbutton_add_contact:
+                showAlertDialog(
+                        getString(R.string.add_contact_title),
+                        getString(R.string.add_contact_message),
+                        getString(R.string.add_contact_positive),
+                        getString(R.string.add_contact_negative));
+                break;
             default:
                 break;
         }
     }
 
+//    public void fabClicked(View v) {
+//        switch(v.getId()) {
+//            case R.id.floatingbutton_add_contact:
+//                showAlertDialog("Suck Dick", "Do you really wanna suck dick, Hai?", "yes", "no");
+//                break;
+//        }
+//    }
+
     private void loadBackImage() {
         final ImageView  iv_my_pic = (ImageView) findViewById(R.id.iv_profile_pic);
         Glide.with(this).load(R.drawable.profile_pic).centerCrop().into(iv_my_pic);
     }
+
+    private void showAlertDialog(String title, String message, String posButton, String negButton) {
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(this, R.style. AppCompatAlertDialogStyle);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.setPositiveButton(posButton, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Log.d(TAG, "nigga here");
+                Intent intent = new Intent(ContactsContract.Intents.Insert.ACTION);
+                intent.setType(ContactsContract.RawContacts.CONTENT_TYPE);
+                intent.putExtra(ContactsContract.Intents.Insert.EMAIL, getString(R.string.email))
+                        .putExtra(
+                                ContactsContract.Intents.Insert.EMAIL_TYPE,
+                                ContactsContract.CommonDataKinds.Email.TYPE_WORK)
+                        .putExtra(
+                                ContactsContract.Intents.Insert.PHONE,
+                                getString(R.string.phone_number_uri))
+                        .putExtra(
+                                ContactsContract.Intents.Insert.PHONE_TYPE,
+                                ContactsContract.CommonDataKinds.Phone.TYPE_WORK)
+                        .putExtra(
+                                ContactsContract.Intents.Insert.NAME,
+                                getString(R.string.my_name));
+
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton(negButton, null);
+        builder.show();
+    }
+
+
+
 }

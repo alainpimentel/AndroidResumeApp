@@ -33,5 +33,10 @@
     <string name="link_blog_url">http://hpimentel.github.io/</string>
     <string name="link_resume">Resume pdf</string>
     <string name="link_resume_url">http://hpimentel.github.io/documents/AlainPimentel.pdf</string>
+    // Add contact
+    <string name="add_contact_title">Add Alain\'s info to your contacts?</string>
+    <string name="add_contact_message">You will be able to edit the contact\'s info before adding it.</string>
+    <string name="add_contact_positive">ADD</string>
+    <string name="add_contact_negative">CANCEL</string>
 
 </resources>
