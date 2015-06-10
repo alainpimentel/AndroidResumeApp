@@ -14,6 +14,10 @@
     <string name="about_me">About Me</string>
     <string name="contact_info">Contact Info</string>
     <string name="important_links">Important Links</string>
+    <string name="education">Education</string>
+    <string name="school">Southern Adventist University | May 2015</string>
+    <string name="major">B.S. Computer Science, Mathematics</string>
+    <string name="gpa">GPA 3.86</string>
     // Address
     <string name="ad_street">242 Curtner Ave.</string>
     <string name="ad_street2">Apt. F</string>
@@ -27,7 +31,7 @@
     <string name="link_linkedin_url">https://www.linkedin.com/in/alainpimentel</string>
     <string name="link_blog">hpimentel.github.io</string>
     <string name="link_blog_url">http://hpimentel.github.io/</string>
-    <string name="link_resume">Resume</string>
-    <string name="link_resume_url"></string>
+    <string name="link_resume">Resume pdf</string>
+    <string name="link_resume_url">http://hpimentel.github.io/documents/AlainPimentel.pdf</string>
 
 </resources>

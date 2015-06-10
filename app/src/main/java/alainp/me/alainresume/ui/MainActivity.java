@@ -17,7 +17,6 @@ import alainp.me.alainresume.R;
 import alainp.me.alainresume.classes.Helper;
 
 /** TODO
- * - Add resume to links, and also to my blog for download
  * - Add functionality to plus button: add my contact to the device's contact
  * - Add skills
  * - Add projects
@@ -33,6 +32,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private RelativeLayout mRelativeLayoutGithub;
     private RelativeLayout mRelativeLayoutLinkedin;
     private RelativeLayout mRelativeLayoutBlog;
+    private RelativeLayout mRelativeLayoutResume;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +75,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mRelativeLayoutBlog.setOnClickListener(this);
         MaterialRippleLayout.
                 on(mRelativeLayoutBlog).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
+        mRelativeLayoutResume = (RelativeLayout) findViewById(R.id.relativelayout_resume);
+        mRelativeLayoutResume.setOnClickListener(this);
+        MaterialRippleLayout.
+                on(mRelativeLayoutResume).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
     }
 
     @Override
@@ -119,6 +123,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 break;
             case R.id.relativelayout_blog:
                 mHelper.openBrowser(this, getString(R.string.link_blog_url));
+                break;
+            case R.id.relativelayout_resume:
+                mHelper.openBrowser(this, getString(R.string.link_resume_url));
                 break;
             default:
                 break;
