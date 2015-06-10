@@ -3,6 +3,7 @@ package alainp.me.alainresume.classes;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 
@@ -73,23 +74,32 @@ public class Helper {
         openInstalledApp(activity, addressUrl);
     }
 
-    private void addContact(Activity activity) {
-        Intent intent = new Intent(ContactsContract.Intents.Insert.ACTION);
-        intent.setType(ContactsContract.RawContacts.CONTENT_TYPE);
-        intent.putExtra(ContactsContract.Intents.Insert.EMAIL, activity.getString(R.string.email))
-              .putExtra(
-                      ContactsContract.Intents.Insert.EMAIL_TYPE,
-                      ContactsContract.CommonDataKinds.Email.TYPE_WORK)
-                .putExtra(
-                    ContactsContract.Intents.Insert.PHONE,
-                    activity.getString(R.string.phone_number_uri))
-                .putExtra(
-                        ContactsContract.Intents.Insert.PHONE_TYPE,
-                        ContactsContract.CommonDataKinds.Phone.TYPE_WORK)
-                .putExtra(
-                        ContactsContract.Intents.Insert.NAME,
-                        activity.getString(R.string.my_name));
-        activity.startActivity(intent);
-
+    /**
+     * Checks if the given number exists in the contact list
+     * Modified from: http://stackoverflow.com/a/15566464/3641665
+     * @param activity the calling activity
+     * @param number the phone number to check
+     * @return boolean indicating if the phone number was found
+     */
+    public boolean contactExists(Activity activity, String number) {
+        Uri lookUpUri = Uri.withAppendedPath(
+                ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
+                Uri.encode(number));
+        String[] mPhoneNumberProjection = {
+                ContactsContract.PhoneLookup._ID,
+                ContactsContract.PhoneLookup.NUMBER,
+                ContactsContract.PhoneLookup.DISPLAY_NAME };
+        Cursor cur = activity.getContentResolver().query(
+                lookUpUri, mPhoneNumberProjection, null, null, null);
+        try {
+            if(cur.moveToFirst()) {
+                return true;
+            }
+        } finally {
+            if (cur != null) {
+                cur.close();
+            }
+        }
+        return false;
     }
 }

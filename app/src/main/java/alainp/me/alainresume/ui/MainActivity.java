@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -39,6 +40,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private RelativeLayout mRelativeLayoutLinkedin;
     private RelativeLayout mRelativeLayoutBlog;
     private RelativeLayout mRelativeLayoutResume;
+    private RelativeLayout mRelativeLayoutProjects;
+    private RelativeLayout mRelativeLayoutSkills;
     private FloatingActionButton mFloatingButtonAddContact;
 
     @Override
@@ -86,6 +89,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mRelativeLayoutResume.setOnClickListener(this);
         MaterialRippleLayout.
                 on(mRelativeLayoutResume).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
+        mRelativeLayoutProjects = (RelativeLayout) findViewById(R.id.relativelayout_projects);
+        mRelativeLayoutProjects.setOnClickListener(this);
+        MaterialRippleLayout.
+                on(mRelativeLayoutProjects).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
+        mRelativeLayoutSkills = (RelativeLayout) findViewById(R.id.relativelayout_skills);
+        mRelativeLayoutSkills.setOnClickListener(this);
+        MaterialRippleLayout.
+                on(mRelativeLayoutSkills).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
         // Floating Action Button
         mFloatingButtonAddContact =
                 (FloatingActionButton) findViewById(R.id.floatingbutton_add_contact);
@@ -139,11 +150,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 mHelper.openBrowser(this, getString(R.string.link_resume_url));
                 break;
             case R.id.floatingbutton_add_contact:
-                showAlertDialog(
-                        getString(R.string.add_contact_title),
-                        getString(R.string.add_contact_message),
-                        getString(R.string.add_contact_positive),
-                        getString(R.string.add_contact_negative));
+                if(!mHelper.contactExists(this, getString(R.string.phone_number_uri))) {
+                    showAlertDialog(
+                            getString(R.string.add_contact_title),
+                            getString(R.string.add_contact_message),
+                            getString(R.string.add_contact_positive),
+                            getString(R.string.add_contact_negative));
+                }
+                else {
+                    Snackbar.make(view, getString(R.string.add_contact_exists_title), Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
                 break;
             default:
                 break;

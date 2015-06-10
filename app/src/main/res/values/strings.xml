@@ -38,5 +38,6 @@
     <string name="add_contact_message">You will be able to edit the contact\'s info before adding it.</string>
     <string name="add_contact_positive">ADD</string>
     <string name="add_contact_negative">CANCEL</string>
+    <string name="add_contact_exists_title">Alain\'s contact has already been saved.</string>
 
 </resources>
