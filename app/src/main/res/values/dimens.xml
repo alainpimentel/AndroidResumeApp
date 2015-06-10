@@ -1,0 +1,8 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="detail_backdrop_height" >256dp</dimen>
+    <dimen name="expanded_margin_start">48dp</dimen>
+    <dimen name="expanded_margin_end">64dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="card_margin">16dp</dimen>
+</resources>

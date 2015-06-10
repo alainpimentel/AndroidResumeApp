@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">alainResume</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="my_name">Alain Pimentel</string>
+    <string name="first_name">Alain</string>
+    <string name="last_name">Pimentel</string>
+    <string name="phone_number">(423)910-9115</string>
+    <string name="phone_number_uri">4239109115</string>
+    <string name="email">halainpb@gmail.com</string>
+    <string name="introduction">I recently graduated with a BS in CS and Math. My passion in the developer world is Android. Activities, fragments, Material Design, you name it. But no Android app should be alone, I can also work with its good companions: databases, REST APIs and JSON.\nWhen I\'m not programming you will find me playing soccer, talking about Game of Thrones, playing FIFA with my mates, or climbing (still too noob).</string>
+    <string name="full_address">242 Curtner Ave.\nApt. F\nPalo Alto, Ca 94306</string>
+    <string name="about_me">About Me</string>
+    <string name="contact_info">Contact Info</string>
+    <string name="important_links">Important Links</string>
+    // Address
+    <string name="ad_street">242 Curtner Ave.</string>
+    <string name="ad_street2">Apt. F</string>
+    <string name="ad_city">Palo Alto</string>
+    <string name="ad_state">CA</string>
+    <string name="ad_zip">94306</string>
+    // Links
+    <string name="link_github">hpimentel</string>
+    <string name="link_github_url">https://github.com/hpimentel</string>
+    <string name="link_linkedin">alainpimentel</string>
+    <string name="link_linkedin_url">https://www.linkedin.com/in/alainpimentel</string>
+    <string name="link_blog">hpimentel.github.io</string>
+    <string name="link_blog_url">http://hpimentel.github.io/</string>
+
+</resources>
