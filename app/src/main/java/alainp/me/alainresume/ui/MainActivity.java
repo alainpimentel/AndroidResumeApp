@@ -1,19 +1,14 @@
 package alainp.me.alainresume.ui;
 
-import android.content.DialogInterface;
 import android.graphics.Color;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.balysv.materialripple.MaterialRippleLayout;
 import com.bumptech.glide.Glide;
@@ -21,12 +16,20 @@ import com.bumptech.glide.Glide;
 import alainp.me.alainresume.R;
 import alainp.me.alainresume.classes.Helper;
 
-
+/** TODO
+ * - Add resume to links, and also to my blog for download
+ * - Add functionality to plus button: add my contact to the device's contact
+ * - Add skills
+ * - Add projects
+ * - Add education
+ */
 public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     private static final String TAG = "MainActivity";
     private Helper mHelper;
     private RelativeLayout mRelativeLayoutPhone;
+    private RelativeLayout mRelativeLayoutEmail;
+    private RelativeLayout mRelativeLayoutAddress;
     private RelativeLayout mRelativeLayoutGithub;
     private RelativeLayout mRelativeLayoutLinkedin;
     private RelativeLayout mRelativeLayoutBlog;
@@ -48,10 +51,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mHelper = new Helper();
 
         // Layouts and other xml elements
+        mRelativeLayoutAddress = (RelativeLayout) findViewById(R.id.relativelayout_address);
+        mRelativeLayoutAddress.setOnClickListener(this);
+        MaterialRippleLayout.
+                on(mRelativeLayoutAddress).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
         mRelativeLayoutPhone = (RelativeLayout) findViewById(R.id.relativelayout_phone);
         mRelativeLayoutPhone.setOnClickListener(this);
         MaterialRippleLayout.
                 on(mRelativeLayoutPhone).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
+        mRelativeLayoutEmail = (RelativeLayout) findViewById(R.id.relativelayout_email);
+        mRelativeLayoutEmail.setOnClickListener(this);
+        MaterialRippleLayout.
+                on(mRelativeLayoutEmail).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
         mRelativeLayoutGithub = (RelativeLayout) findViewById(R.id.relativelayout_github);
         mRelativeLayoutGithub.setOnClickListener(this);
         MaterialRippleLayout.
@@ -93,6 +104,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         switch(view.getId()) {
             case R.id.relativelayout_phone:
                mHelper.openPhoneDialer(this, getString(R.string.phone_number_uri));
+                break;
+            case R.id.relativelayout_email:
+                mHelper.openEmail(this);
+                break;
+            case R.id.relativelayout_address:
+                mHelper.openMaps(this);
                 break;
             case R.id.relativelayout_github:
                 mHelper.openBrowser(this, getString(R.string.link_github_url));

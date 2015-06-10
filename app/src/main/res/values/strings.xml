@@ -27,5 +27,7 @@
     <string name="link_linkedin_url">https://www.linkedin.com/in/alainpimentel</string>
     <string name="link_blog">hpimentel.github.io</string>
     <string name="link_blog_url">http://hpimentel.github.io/</string>
+    <string name="link_resume">Resume</string>
+    <string name="link_resume_url"></string>
 
 </resources>
