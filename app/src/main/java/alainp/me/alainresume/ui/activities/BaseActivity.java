@@ -1,4 +1,4 @@
-package alainp.me.alainresume.ui;
+package alainp.me.alainresume.ui.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;

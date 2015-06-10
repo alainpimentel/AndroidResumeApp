@@ -1,4 +1,4 @@
-package alainp.me.alainresume.ui;
+package alainp.me.alainresume.ui.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -41,7 +41,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private RelativeLayout mRelativeLayoutBlog;
     private RelativeLayout mRelativeLayoutResume;
     private RelativeLayout mRelativeLayoutProjects;
-    private RelativeLayout mRelativeLayoutSkills;
+//    private RelativeLayout mRelativeLayoutSkills;
     private FloatingActionButton mFloatingButtonAddContact;
 
     @Override
@@ -93,10 +93,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mRelativeLayoutProjects.setOnClickListener(this);
         MaterialRippleLayout.
                 on(mRelativeLayoutProjects).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
-        mRelativeLayoutSkills = (RelativeLayout) findViewById(R.id.relativelayout_skills);
-        mRelativeLayoutSkills.setOnClickListener(this);
-        MaterialRippleLayout.
-                on(mRelativeLayoutSkills).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
+//        mRelativeLayoutSkills = (RelativeLayout) findViewById(R.id.relativelayout_skills);
+//        mRelativeLayoutSkills.setOnClickListener(this);
+//        MaterialRippleLayout.
+//                on(mRelativeLayoutSkills).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
         // Floating Action Button
         mFloatingButtonAddContact =
                 (FloatingActionButton) findViewById(R.id.floatingbutton_add_contact);
@@ -161,6 +161,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                     Snackbar.make(view, getString(R.string.add_contact_exists_title), Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
+                break;
+            case R.id.relativelayout_projects:
+                startActivity(new Intent(this, ProjectsSkillsActivity.class));
                 break;
             default:
                 break;
