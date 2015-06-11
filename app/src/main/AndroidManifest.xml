@@ -22,6 +22,9 @@
             android:name=".ui.activities.ProjectsSkillsActivity"
             android:label="@string/title_projects_skills_activity">
         </activity>
+        <activity
+            android:name=".ui.activities.ProjectDetailActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -1,5 +1,8 @@
 package alainp.me.alainresume.classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by alain on 6/10/2015.
  */
@@ -18,6 +21,16 @@ public class Project {
         this.owner= owner;
     }
 
+
+    public ArrayList<String> getProjectArray() {
+        ArrayList projectList = new ArrayList();
+        projectList.add(title);
+        projectList.add(language);
+        projectList.add(technologies);
+        projectList.add(responsibilities);
+        projectList.add(owner);
+        return projectList;
+    }
     public String getLanguage() {
         return language;
     }

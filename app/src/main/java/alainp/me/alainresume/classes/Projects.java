@@ -15,7 +15,7 @@ public class Projects {
         projects.add(new Project("Missionary Hub",
                 "PHP",
                 "Linux, Apache, MySQL, PHP, jQuery",
-                "Using a LAMP stack, developed the a " +
+                "Using a LAMP stack, developed a " +
                 "chat feature, the admin site, and the integration of a video player for server " +
                 "content. Also used JavaScript and jQuery for frontend features.",
                 "CIRC Internship"));

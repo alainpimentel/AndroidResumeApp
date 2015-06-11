@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle(getResources().getString(R.string.my_name));
 
-        loadBackImage();
+        loadBackImage(R.id.iv_profile_pic);
 
         mHelper = new Helper();
 
@@ -177,11 +177,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 //                break;
 //        }
 //    }
-
-    private void loadBackImage() {
-        final ImageView  iv_my_pic = (ImageView) findViewById(R.id.iv_profile_pic);
-        Glide.with(this).load(R.drawable.profile_pic).centerCrop().into(iv_my_pic);
-    }
 
     private void showAlertDialog(String title, String message, String posButton, String negButton) {
         AlertDialog.Builder builder =
