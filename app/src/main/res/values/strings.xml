@@ -51,10 +51,10 @@
     //Experience
     <string name="circ_title">Software Engineer Intern at CIRC</string>
     <string name="circ_date">April 2014 to May 2015</string>
-    <string name="circ_descrition">I worked on both Android and fullstack development. I worked on two Android apps, of which "Devoted" was published on the Play Store. For web, I used a LAMP (PHP) stack to develop several web apps. It involved using frontend jQuery, HTML/CSS, and Bootstrap 3 for frontend futures. I also did extensive work on backend features and Linux servers. </string>
+    <string name="circ_description">I worked on a couple Android apps, one was published on the Play Store. For web, I used a LAMP (PHP) stack to develop several web apps. It involved using frontend jQuery, HTML/CSS, and Bootstrap 3 for frontend futures. I also did extensive work on backend features and Linux servers. </string>
     <string name="math_title">Math Tutor/Grader/TA at SAU</string>
     <string name="math_date">Fall 2011 - Winter 2014</string>
-    <string name="math_description">Graded and tutored all of the lower-division Math courses at SAU. I was also the teaching assistant of Dr. Anderson for Survey of Maht, College Algebra, and CalculusII.</string>
+    <string name="math_description">Graded and tutored all of the lower-division Math courses at SAU. I was also the teaching assistant of Dr. Anderson for Survey of Math, College Algebra, and Calculus II.</string>
 
 
 </resources>

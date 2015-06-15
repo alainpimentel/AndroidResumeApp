@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/alainResume.iml" filepath="$PROJECT_DIR$/alainResume.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidResumeApp.iml" filepath="$PROJECT_DIR$/AndroidResumeApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

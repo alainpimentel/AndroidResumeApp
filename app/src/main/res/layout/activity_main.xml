@@ -54,6 +54,7 @@
             android:orientation="vertical"
             android:paddingTop="24dp">
 
+            <!--About Me-->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,6 +80,7 @@
 
             </android.support.v7.widget.CardView>
 
+            <!--Education-->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -116,6 +118,50 @@
 
             </android.support.v7.widget.CardView>
 
+            <!--Experience-->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_margin">
+
+                <LinearLayout
+                    style="@style/Widget.CardContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/experience"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                    <RelativeLayout
+                        android:id="@+id/relativelayout_projects"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:text="@string/link_to_experience"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                        <ImageView
+                            android:id="@+id/ic_projects_next"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/ic_navigate_next_black_48dp" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!--Contact Info-->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -202,48 +248,7 @@
 
             </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/card_margin">
-
-                <LinearLayout
-                    style="@style/Widget.CardContent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/experience"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
-
-                    <RelativeLayout
-                        android:id="@+id/relativelayout_projects"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:text="@string/link_to_experience"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
-
-                        <ImageView
-                            android:id="@+id/ic_projects_next"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_alignParentRight="true"
-                            android:src="@drawable/ic_navigate_next_black_48dp" />
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-
+            <!--Important Links-->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -55,7 +55,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle(getResources().getString(R.string.my_name));
 
-        loadBackImage(R.id.iv_profile_pic);
+        loadBackImage(R.id.iv_profile_pic, R.drawable.profile_pic);
 
         mHelper = new Helper();
 

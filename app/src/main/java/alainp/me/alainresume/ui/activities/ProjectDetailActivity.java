@@ -59,7 +59,7 @@ public class ProjectDetailActivity extends BaseActivity implements  View.OnClick
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(mTitle);
 
-        loadBackImage(R.id.iv_profile_pic);
+        loadBackImage(R.id.iv_project_pic, R.drawable.project_rss);
 
         mTextViewDescription = (TextView) findViewById(R.id.tv_project_description);
         mTextViewDescription.setText(mDescription);

@@ -17,9 +17,9 @@ public class BaseActivity extends AppCompatActivity {
         Toast.makeText(this, message, Toast.LENGTH_LONG);
     }
 
-    protected void loadBackImage(int imageId) {
-        final ImageView iv_my_pic = (ImageView) findViewById(imageId);
-        Glide.with(this).load(R.drawable.profile_pic).centerCrop().into(iv_my_pic);
+    protected void loadBackImage(int imageViewId, int picId) {
+        final ImageView iv_my_pic = (ImageView) findViewById(imageViewId);
+        Glide.with(this).load(picId).centerCrop().into(iv_my_pic);
     }
 
     @Override

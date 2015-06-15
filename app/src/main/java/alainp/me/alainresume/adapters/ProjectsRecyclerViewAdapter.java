@@ -82,8 +82,9 @@ public class ProjectsRecyclerViewAdapter
             }
         });
 
+        int drawable = getDrawable(mProjects.get(position).getLanguage());
         Glide.with(holder.mImageView.getContext())
-                .load(R.drawable.ic_github)
+                .load(drawable)
                 .fitCenter()
                 .into(holder.mImageView);
     }
@@ -91,5 +92,23 @@ public class ProjectsRecyclerViewAdapter
     @Override
     public int getItemCount() {
         return mProjects.size();
+    }
+
+    private int getDrawable(String name) {
+        if(name.equals("Android")) {
+            return R.drawable.lang_android;
+        }
+        else if(name.equals("PHP")) {
+            return R.drawable.lang_php;
+        }
+        else if(name.equals("CPP")) {
+            return R.drawable.lang_cpp;
+        }
+        else if(name.equals("Python")) {
+            return R.drawable.lang_python;
+        }
+        else {
+            return R.drawable.ic_public_black_48dp;
+        }
     }
 }
