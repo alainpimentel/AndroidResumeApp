@@ -24,10 +24,9 @@ import alainp.me.alainresume.R;
 import alainp.me.alainresume.classes.Helper;
 
 /** TODO
- * - Add functionality to plus button: add my contact to the device's contact
  * - Add skills
- * - Add projects
- * - Add education
+ * - Add projects: Add language pic and project pic. Add all projects
+ * - Add experience tab
  */
 public class MainActivity extends BaseActivity implements View.OnClickListener{
 

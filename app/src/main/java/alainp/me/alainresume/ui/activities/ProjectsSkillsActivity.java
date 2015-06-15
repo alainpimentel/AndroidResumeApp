@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import alainp.me.alainresume.R;
 import alainp.me.alainresume.adapters.ViewPagerAdapter;
+import alainp.me.alainresume.ui.fragments.ExperienceFragment;
 import alainp.me.alainresume.ui.fragments.ProjectsFragment;
 import alainp.me.alainresume.ui.fragments.SkillsFragment;
 
@@ -15,6 +16,7 @@ import alainp.me.alainresume.ui.fragments.SkillsFragment;
  * Created by alain on 6/10/2015.
  */
 public class ProjectsSkillsActivity extends BaseActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class ProjectsSkillsActivity extends BaseActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPagerAdapter.addFragment(new ExperienceFragment(), "Experience");
         viewPagerAdapter.addFragment(new ProjectsFragment(), "Projects");
         viewPagerAdapter.addFragment(new SkillsFragment(), "Skills");
         viewPager.setAdapter(viewPagerAdapter);
