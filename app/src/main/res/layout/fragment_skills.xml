@@ -6,17 +6,108 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingTop="4dp">
+        android:layout_margin="4dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/cpp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Skills go here"/>
+            android:layout_alignParentLeft="true"
+            android:text="C++"
+            android:textSize="80dp"
+            android:textColor="#F44336"/>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/python"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/cpp"
+            android:layout_marginTop="2dp"
+            android:text="Python"
+            android:textSize="40dp"
+            android:textColor="#009688"/>
+
+        <TextView
+            android:id="@+id/linux"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/java"
+            android:layout_centerHorizontal="true"
+            android:text="Linux"
+            android:textSize="35dp"
+            android:textColor="#FF9800"/>
+
+        <TextView
+            android:id="@+id/scala"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/python"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:text="Scala"
+            android:textSize="30dp"
+            android:textColor="#03A9F4"/>
+
+        <TextView
+            android:id="@+id/java"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cpp"
+            android:layout_centerHorizontal="true"
+            android:text="JAVA"
+            android:textSize="110dp"
+            android:textColor="#8BC34A"/>
+
+        <TextView
+            android:id="@+id/php"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/java"
+            android:layout_alignParentRight="true"
+            android:text="PHP"
+            android:textSize="80dp"
+            android:textColor="#9C27B0"/>
+
+        <TextView
+            android:id="@+id/javascript"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/java"
+            android:text="Javascript"
+            android:textSize="35dp"
+            android:textColor="#795548"/>
+
+        <TextView
+            android:id="@+id/rest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/javascript"
+            android:layout_marginLeft="40dp"
+            android:text="REST"
+            android:textSize="25dp"
+            android:textColor="#FFEB3B"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rest"
+            android:layout_alignParentLeft="true"
+            android:text="MySQL"
+            android:textSize="70dp"
+            android:textColor="#E91E63"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rest"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="HTML/CSS"
+            android:textSize="25dp"
+            android:textColor="#CDDC39"/>
+    </RelativeLayout>
 
 </android.support.v4.widget.NestedScrollView>

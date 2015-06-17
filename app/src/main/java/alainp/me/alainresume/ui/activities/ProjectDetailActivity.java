@@ -8,9 +8,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import alainp.me.alainresume.R;
 import alainp.me.alainresume.classes.Helper;
@@ -19,7 +22,9 @@ import alainp.me.alainresume.classes.Helper;
  * Created by alain on 6/10/2015.
  */
 public class ProjectDetailActivity extends BaseActivity implements  View.OnClickListener {
-    public static final String EXTRA_NAME = "project_detail";
+    public static final String EXTRA_DETAILS = "project_detail";
+    public static final String EXTRA_PICTURES = "project_pictures";
+
 
     private String mTitle;
     private String mInfo;
@@ -33,6 +38,7 @@ public class ProjectDetailActivity extends BaseActivity implements  View.OnClick
     private TextView mTextViewTechnologies;
     private FloatingActionButton mFloatingButtonLink;
     private Helper mHelper;
+    private SliderLayout mSlider;
 
     @Override
     public void onCreate(Bundle savedInstance) {
@@ -40,7 +46,7 @@ public class ProjectDetailActivity extends BaseActivity implements  View.OnClick
         setContentView(R.layout.activity_project_detail);
 
         Intent intent = getIntent();
-        final ArrayList<String> projectInfo = intent.getStringArrayListExtra(EXTRA_NAME);
+        final ArrayList<String> projectInfo = intent.getStringArrayListExtra(EXTRA_DETAILS);
         mTitle = projectInfo.get(0);
         mInfo = projectInfo.get(1);
         mLanguage = projectInfo.get(2);
@@ -54,12 +60,9 @@ public class ProjectDetailActivity extends BaseActivity implements  View.OnClick
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(mTitle);
 
-        CollapsingToolbarLayout collapsingToolbarLayout =
-                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle(mTitle);
-
-        loadBackImage(R.id.iv_project_pic, R.drawable.project_rss);
+//        loadBackImage(R.id.iv_project, R.drawable.project_rss);
 
         mTextViewDescription = (TextView) findViewById(R.id.tv_project_description);
         mTextViewDescription.setText(mDescription);
@@ -77,6 +80,27 @@ public class ProjectDetailActivity extends BaseActivity implements  View.OnClick
         else {
             mFloatingButtonLink.setOnClickListener(this);
         }
+
+        mSlider = (SliderLayout)findViewById(R.id.slider);
+
+
+        HashMap<String,Integer> file_maps =
+                (HashMap<String, Integer>) intent.getSerializableExtra(EXTRA_PICTURES);
+
+        for(String name : file_maps.keySet()){
+            TextSliderView textSliderView = new TextSliderView(this);
+            // initialize a SliderLayout
+            textSliderView
+                    .description(name)
+                    .image(file_maps.get(name))
+                    .setScaleType(BaseSliderView.ScaleType.CenterInside);
+            //add your extra information
+            textSliderView.bundle(new Bundle());
+            textSliderView.getBundle()
+                    .putString("extra",name);
+
+            mSlider.addSlider(textSliderView);
+        }
     }
 
     @Override
@@ -88,5 +112,12 @@ public class ProjectDetailActivity extends BaseActivity implements  View.OnClick
             default:
                 break;
         }
+    }
+
+    @Override
+    protected void onStop() {
+        // To prevent a memory leak on rotation, make sure to call stopAutoCycle() on the slider before activity or fragment is destroyed
+        mSlider.stopAutoCycle();
+        super.onStop();
     }
 }

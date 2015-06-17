@@ -1,6 +1,7 @@
 package alainp.me.alainresume.classes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -14,9 +15,10 @@ public class Project {
     private String responsibilities;
     private String owner;
     private String link;
-
+    private HashMap<String, Integer> pictures;
     public Project(String title, String description, String language, String technologies,
-                   String responsibilities, String owner, String link) {
+                   String responsibilities, String owner, String link,
+                   HashMap<String, Integer> pictures) {
         this.title = title;
         this.description = description;
         this.language = language;
@@ -24,6 +26,7 @@ public class Project {
         this.responsibilities = responsibilities;
         this.owner= owner;
         this.link = link;
+        this.pictures = pictures;
     }
 
 
@@ -38,6 +41,11 @@ public class Project {
         projectList.add(link);
         return projectList;
     }
+
+    public HashMap<String, Integer> getPicturesMap() {
+        return pictures;
+    }
+
     public String getLanguage() {
         return language;
     }

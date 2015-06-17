@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">alainResume</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Alain\'s Resume</string>
     <string name="title_projects_skills_activity">ProjectsSkillsActivity</string>
 
     <string name="action_settings">Settings</string>
@@ -10,7 +10,7 @@
     <string name="phone_number">(423)910-9115</string>
     <string name="phone_number_uri">4239109115</string>
     <string name="email">halainpb@gmail.com</string>
-    <string name="introduction">I recently graduated with a BS in CS and Math. My passion in the developer world is Android. Activities, fragments, Material Design, you name it. But no Android app should be alone, I can also work with its good companions: databases, REST APIs and JSON.\nWhen I\'m not programming you will find me playing soccer, talking about Game of Thrones, playing FIFA with my mates, or climbing (still too noob).</string>
+    <string name="introduction">I recently graduated with a BS in CS and Math. I\'m passionate Android developer with a wide range of backend and frontend skills.\nWhen I\'m not programming you will find me playing soccer, talking about Game of Thrones, playing FIFA with my mates, or climbing. Feel free to contact me anytime.</string>
     <string name="full_address">242 Curtner Ave.\nApt. F\nPalo Alto, Ca 94306</string>
     <string name="about_me">About Me</string>
     <string name="contact_info">Contact Info</string>
@@ -56,5 +56,10 @@
     <string name="math_date">Fall 2011 - Winter 2014</string>
     <string name="math_description">Graded and tutored all of the lower-division Math courses at SAU. I was also the teaching assistant of Dr. Anderson for Survey of Math, College Algebra, and Calculus II.</string>
 
+    //Skills
+    <string name="skill_advanced">Advance</string>
+    <string name="skills_advanced">C++, Java (Android), PHP, MySQL</string>
+    <string name="skill_experience">Experience</string>
+    <string name="skills_experience">Python, Javascript, jQuery, Scala, REST APIs, JSON</string>
 
 </resources>

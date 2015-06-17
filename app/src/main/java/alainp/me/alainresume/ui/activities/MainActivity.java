@@ -9,24 +9,21 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.balysv.materialripple.MaterialRippleLayout;
-import com.bumptech.glide.Glide;
 
 import alainp.me.alainresume.R;
 import alainp.me.alainresume.classes.Helper;
 
 /** TODO
- * - Add skills
- * - Add projects: Add language pic and project pic. Add all projects
- * - Add experience tab
  */
 public class MainActivity extends BaseActivity implements View.OnClickListener{
 
@@ -39,8 +36,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private RelativeLayout mRelativeLayoutLinkedin;
     private RelativeLayout mRelativeLayoutBlog;
     private RelativeLayout mRelativeLayoutResume;
-    private RelativeLayout mRelativeLayoutProjects;
-//    private RelativeLayout mRelativeLayoutSkills;
+    private LinearLayout mLinearLayoutExperience;
     private FloatingActionButton mFloatingButtonAddContact;
 
     @Override
@@ -63,39 +59,35 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mRelativeLayoutAddress = (RelativeLayout) findViewById(R.id.relativelayout_address);
         mRelativeLayoutAddress.setOnClickListener(this);
         MaterialRippleLayout.
-                on(mRelativeLayoutAddress).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
+                on(mRelativeLayoutAddress).rippleColor(Color.RED).rippleAlpha(0.2f).create();
         mRelativeLayoutPhone = (RelativeLayout) findViewById(R.id.relativelayout_phone);
         mRelativeLayoutPhone.setOnClickListener(this);
         MaterialRippleLayout.
-                on(mRelativeLayoutPhone).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
+                on(mRelativeLayoutPhone).rippleColor(Color.RED).rippleAlpha(0.2f).create();
         mRelativeLayoutEmail = (RelativeLayout) findViewById(R.id.relativelayout_email);
         mRelativeLayoutEmail.setOnClickListener(this);
         MaterialRippleLayout.
-                on(mRelativeLayoutEmail).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
+                on(mRelativeLayoutEmail).rippleColor(Color.RED).rippleAlpha(0.2f).create();
         mRelativeLayoutGithub = (RelativeLayout) findViewById(R.id.relativelayout_github);
         mRelativeLayoutGithub.setOnClickListener(this);
         MaterialRippleLayout.
-                on(mRelativeLayoutGithub).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
+                on(mRelativeLayoutGithub).rippleColor(Color.RED).rippleAlpha(0.2f).create();
         mRelativeLayoutLinkedin = (RelativeLayout) findViewById(R.id.relativelayout_linkedin);
         mRelativeLayoutLinkedin.setOnClickListener(this);
         MaterialRippleLayout.
-                on(mRelativeLayoutLinkedin).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
+                on(mRelativeLayoutLinkedin).rippleColor(Color.RED).rippleAlpha(0.2f).create();
         mRelativeLayoutBlog = (RelativeLayout) findViewById(R.id.relativelayout_blog);
         mRelativeLayoutBlog.setOnClickListener(this);
         MaterialRippleLayout.
-                on(mRelativeLayoutBlog).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
+                on(mRelativeLayoutBlog).rippleColor(Color.RED).rippleAlpha(0.2f).create();
         mRelativeLayoutResume = (RelativeLayout) findViewById(R.id.relativelayout_resume);
         mRelativeLayoutResume.setOnClickListener(this);
         MaterialRippleLayout.
-                on(mRelativeLayoutResume).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
-        mRelativeLayoutProjects = (RelativeLayout) findViewById(R.id.relativelayout_projects);
-        mRelativeLayoutProjects.setOnClickListener(this);
+                on(mRelativeLayoutResume).rippleColor(Color.RED).rippleAlpha(0.2f).create();
+        mLinearLayoutExperience = (LinearLayout) findViewById(R.id.linearlayout_experience);
+        mLinearLayoutExperience.setOnClickListener(this);
         MaterialRippleLayout.
-                on(mRelativeLayoutProjects).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
-//        mRelativeLayoutSkills = (RelativeLayout) findViewById(R.id.relativelayout_skills);
-//        mRelativeLayoutSkills.setOnClickListener(this);
-//        MaterialRippleLayout.
-//                on(mRelativeLayoutSkills).rippleColor(Color.BLUE).rippleAlpha(0.2f).create();
+                on(mLinearLayoutExperience).rippleColor(Color.RED).rippleAlpha(0.2f).create();
         // Floating Action Button
         mFloatingButtonAddContact =
                 (FloatingActionButton) findViewById(R.id.floatingbutton_add_contact);
@@ -117,9 +109,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -161,7 +153,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                             .setAction("Action", null).show();
                 }
                 break;
-            case R.id.relativelayout_projects:
+            case R.id.linearlayout_experience:
                 startActivity(new Intent(this, ProjectsSkillsActivity.class));
                 break;
             default:
